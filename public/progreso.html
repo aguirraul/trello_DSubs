@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./trello.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    
+    <div>
+      <form id="progreso">
+      <select name="progress" id="progress" onchange="guarda_progreso()">
+        <option value="0.00"  selected>[0%]   Pendiente</option>
+        <option value="0.08"  >[8%]   CONS en Curso </option>
+        <option value="0.17"  >[17%]  CONS Conluida</option>
+        <option value="0.25"  >[25%]  CERT en Curso</option>
+        <option value="0.33"  >[33%]  CERT Concluida</option>
+        <option value="0.50"  >[50%]  CERT Conforme</option>
+        <option value="0.58"  >[58%]  PLAN Reservado</option>
+        <option value="0.67"  >[67%]  PLAN Aprobado</option>
+        <option value="0.75"  >[75%]  PROD Pendiente</option>
+        <option value="0.83"  >[83%]  PROD Implementado</option>
+        <option value="1.00"  >[100%] PROD Conforme</option>
+      </select>
+      </form>
+    </div>
+      
+  <script src="./js/progreso.js"></script>
+  </body>
+  
+</html>

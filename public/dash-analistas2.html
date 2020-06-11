@@ -1,0 +1,145 @@
+<html>
+  <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key=0d0ad0d0f15077a5f2b55d277c51085d"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<div ng-app="app">
+    <div ng-controller="calendarCntrl">
+      <table>
+        <tr>
+          <td valign="top">
+            <div id="loggedin" ng-show="isLoggedIn">
+            Quadros:  
+    <select data-ng-model="quadroDefault" data-ng-options="board.shortLink  as board.name for board in boards | filter:{closed:false}" ng-change="fresh()"></select>
+            </div>
+          </td>
+          <td>
+
+            <div id="output">
+              {{quadroDefault.name}}
+              <table>
+                <tr ng-repeat="list in lists">
+                  <td>{{list.name}}</td>
+                  <td>{{list.size}}</td>
+                </tr>
+              </table>
+            </div>      
+            <div id="output">
+              <div ng-repeat="card in cards"><a href="{{card.url}}" target="trello" class="card">{{card.name}}</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+        </div>
+    </div>
+
+  
+  <style>
+body {font-family: arial;font-size: 12px;}
+#loggedout {text-align: center;font-size: 20px;padding-top: 30px;}
+#header {padding: 4px;border-bottom: 1px solid #000;background: #eee;}
+#output {padding: 0px 20px 20px 20px;}
+
+.card {display: block;padding: 2px;}
+  </style>
+  
+  <script>
+var token ='3b05c87a3aa6a037b33e159fa527ce7e63c6438c6fd4832348675e68fa8bb810';
+var app = angular.module('app', []);
+app.controller('calendarCntrl', ['$scope','$timeout', function($scope, $timeout) {
+    $scope.cards = [];
+    $scope.boards = [];
+    $scope.lists = [];
+    $scope.actions = [];
+    $scope.members = [];
+    $scope.quadroDefault= "jUv8EKWk";
+  
+    Trello.authorize({
+      name: "API-Test",
+      type: "popup",
+      interactive: true,
+      expiration: "never",
+      success: load,
+      scope: { write: true, read: true },
+    });
+    token = Trello.token();
+    $scope.$watch(function () {
+        return Trello.authorized();
+    }, function (val) {
+        $scope.isLoggedIn = val;
+        $scope.tok = token;
+    });
+  
+    function load() {
+      loadBoards();
+      loadCards();
+      loadLists();
+      loadMembers();
+      loadActions();
+    };
+
+    function loadBoards() {
+      $scope.loadingBoards = true;
+      Trello.get("members/me/boards", function (boards){
+        angular.extend($scope.boards, boards);
+        $scope.loadingBoards = false;
+      });
+    }
+  
+   function loadMembers() {
+      $scope.loadingMembers = true;
+      Trello.get("boards/"+$scope.quadroDefault+"/members", function (members){
+        angular.extend($scope.members, members);
+        $scope.loadingMembers = false;
+      });
+    }
+  
+  function loadActions() {
+      $scope.loadingActions = true;
+      Trello.get("boards/"+$scope.quadroDefault+"/actions", function (actions){
+        angular.extend($scope.actions, actions)+"&filter=commentCard&limit=1000";
+        $scope.loadingActions = false;
+        $scope.poll();
+      });
+    }
+
+    function loadLists() {
+      $scope.loadingLists = true;
+      Trello.get("boards/"+$scope.quadroDefault+"/lists?cards=open", {}, function (lists){
+        $scope.poll();
+        for(var i=0; i<lists.length; i++){
+            lists[i].size = lists[i].cards.length;
+        }
+        angular.extend($scope.lists, lists);
+        $scope.loadingLists = false;
+      });
+    }
+  
+  function loadCards() {
+      $scope.loadingCards = true;
+      Trello.get("boards/"+$scope.quadroDefault+"/cards", function (cards){
+        angular.extend($scope.cards, cards);
+        $scope.loadingCards = false;
+        $scope.poll();
+      });
+    }
+  
+    $scope.fresh = function(){
+      $scope.cards = [];
+      $scope.lists = [];
+      $scope.actions = [];
+      loadCards();
+      loadLists();
+      loadActions();
+    }
+    $scope.poll = function() {
+      $timeout(function() {
+        console.log('poll');
+      }, 100);
+    };
+  
+  // 
+}]);
+  </script>
+
+</html>

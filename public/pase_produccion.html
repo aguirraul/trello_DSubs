@@ -1,0 +1,203 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./trello.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+  
+    <div>
+      <form id="pase_produccion">
+<div class="tab">
+  <button class="tablinks" onclick="abrirRonda(event, 'ronda1')" id="defaultOpen">1ER</button>
+  <button class="tablinks" onclick="abrirRonda(event, 'ronda2')">2DO</button>
+  <button class="tablinks" onclick="abrirRonda(event, 'ronda3')">3ER</button>
+  <button class="tablinks" onclick="abrirRonda(event, 'ronda4')">4TO</button>
+  <button class="tablinks" onclick="abrirRonda(event, 'ronda5')">5TO</button>
+</div>
+    
+<div id="ronda1" class="tabcontent">
+    <label for="pase_produccion">Control de Cambios: PRIMER PASE</label>
+    <select name="pase_si_no" id="pase_si_no" onchange="habilitar_detalle()" style="width:38%;">
+      <option value=""></option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+    <input type="datetime-local" name="pase_fecha" id="pase_fecha" placeholder="Fecha de pase" style="width:60%;">
+    
+    <label for="pase_produccion">Resultado del Pase</label>
+     <select name="pase_rati_tipo" id="pase_rati_tipo" onchange="habilitar_rati()">
+      <option value=""></option>
+      <option value="Reversión Total">Reversión Total</option>
+      <option value="Reversión Parcial">Reversión Parcial</option>
+      <option value="Reversión Administrativa">Reversión Administrativa</option>
+      <option value="Ratificación Parcial">Ratificación Parcial</option>
+      <option value="Ratificación Total">Ratificación Total</option>
+      
+    </select>
+    <textarea name="pase_rati_obs" id="pase_rati_obs" placeholder="comentarios..."
+    tabindex="1" dir="auto" style="overflow: hidden; overflow-wrap: break-word; height: 100px;background:white" ></textarea>
+</div>
+<div id="ronda2" class="tabcontent">
+  <label for="pase_produccion">Control de Cambios: SEGUNDO PASE</label>
+    <select name="pase_si_no" id="pase_si_no2" onchange="habilitar_detalle2()" style="width:38%;">
+      <option value=""></option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+    <input type="datetime-local" name="pase_fecha" id="pase_fecha2" placeholder="Fecha de pase" style="width:60%;">
+    
+    <label for="pase_produccion">Resultado del Pase</label>
+     <select name="pase_rati_tipo" id="pase_rati_tipo2" onchange="habilitar_rati()">
+      <option value=""></option>
+      <option value="Reversión Total">Reversión Total</option>
+      <option value="Reversión Total">Reversión Parcial</option>
+      <option value="Reversión Administrativa">Reversión Administrativa</option>
+      <option value="Ratificación Parcial">Ratificación Parcial</option>
+      <option value="Ratificación Total">Ratificación Total</option>
+      
+    </select>
+    <textarea name="pase_rati_obs" id="pase_rati_obs2" placeholder="comentarios..."
+    tabindex="1" dir="auto" style="overflow: hidden; overflow-wrap: break-word; height: 100px;background:white" ></textarea>
+</div>
+<div id="ronda3" class="tabcontent">
+  <label for="pase_produccion">Control de Cambios: TERCER PASE</label>
+    <select name="pase_si_no" id="pase_si_no3" onchange="habilitar_detalle3()" style="width:38%;">
+      <option value=""></option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+    <input type="datetime-local" name="pase_fecha" id="pase_fecha3" placeholder="Fecha de pase" style="width:60%;">
+    
+    <label for="pase_produccion">Resultado del Pase</label>
+     <select name="pase_rati_tipo" id="pase_rati_tipo3" onchange="habilitar_rati()">
+      <option value=""></option>
+      <option value="Reversión Total">Reversión Total</option>
+      <option value="Reversión Total">Reversión Parcial</option>
+      <option value="Reversión Administrativa">Reversión Administrativa</option>
+      <option value="Ratificación Parcial">Ratificación Parcial</option>
+      <option value="Ratificación Total">Ratificación Total</option>
+      
+    </select>
+    <textarea name="pase_rati_obs" id="pase_rati_obs3" placeholder="comentarios..."
+    tabindex="1" dir="auto" style="overflow: hidden; overflow-wrap: break-word; height: 100px;background:white" ></textarea>
+</div>
+<div id="ronda4" class="tabcontent">
+  <label for="pase_produccion">Control de Cambios: CUARTO PASE</label>
+    <select name="pase_si_no" id="pase_si_no4" onchange="habilitar_detalle4()" style="width:38%;">
+      <option value=""></option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+    <input type="datetime-local" name="pase_fecha" id="pase_fecha4" placeholder="Fecha de pase" style="width:60%;">
+    
+    <label for="pase_produccion">Resultado del Pase</label>
+     <select name="pase_rati_tipo" id="pase_rati_tipo4" onchange="habilitar_rati()">
+      <option value=""></option>
+      <option value="Reversión Total">Reversión Total</option>
+      <option value="Reversión Total">Reversión Parcial</option>
+      <option value="Reversión Administrativa">Reversión Administrativa</option>
+      <option value="Ratificación Parcial">Ratificación Parcial</option>
+      <option value="Ratificación Total">Ratificación Total</option>
+      
+    </select>
+    <textarea name="pase_rati_obs" id="pase_rati_obs4" placeholder="comentarios..."
+    tabindex="1" dir="auto" style="overflow: hidden; overflow-wrap: break-word; height: 100px;background:white" ></textarea>
+</div>
+<div id="ronda5" class="tabcontent">
+  <label for="pase_produccion">Control de Cambios: QUINTO PASE</label>
+    <select name="pase_si_no" id="pase_si_no5" onchange="habilitar_detalle5()" style="width:38%;">
+      <option value=""></option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+    <input type="datetime-local" name="pase_fecha" id="pase_fecha5" placeholder="Fecha de pase" style="width:60%;">
+    
+    <label for="pase_produccion">Resultado del Pase</label>
+     <select name="pase_rati_tipo" id="pase_rati_tipo5" onchange="habilitar_rati()">
+      <option value=""></option>
+      <option value="Reversión Total">Reversión Total</option>
+      <option value="Reversión Total">Reversión Parcial</option>
+      <option value="Reversión Administrativa">Reversión Administrativa</option>
+      <option value="Ratificación Parcial">Ratificación Parcial</option>
+      <option value="Ratificación Total">Ratificación Total</option>
+      
+    </select>
+    <textarea name="pase_rati_obs" id="pase_rati_obs5" placeholder="comentarios..."
+    tabindex="1" dir="auto" style="overflow: hidden; overflow-wrap: break-word; height: 100px;background:white" ></textarea>
+</div>
+        
+    <button onclick="saveandexit()" class="mod-primary">Guardar</button>
+      </form>
+    </div>
+
+    
+    <script src="./js/pase_produccion.js"></script>
+    
+    <script>
+      function abrirRonda(evt, ronda) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(ronda).style.display = "block";
+      evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+
+
+
+<style>
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: none;
+  background-color: none;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  height:10px;
+  color:gray;
+  cursor: pointer;
+  padding: 15px 14px;
+  padding-top:8px;
+  padding-bottom:24px;
+  font-size: 12px;
+  box-shadow:none;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #026aa7;
+  color:white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 3px 5px;
+  border: none;
+  border-top: none;
+}
+
+</style>
+  </body>
+  
+</html>

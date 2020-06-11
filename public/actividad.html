@@ -1,0 +1,28 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    
+    <div>
+      <form id="actividad">
+      <select name="motivo_stopper" id="motivo_stopper">
+        <option value="Frente Responsable" disabled selected>Frente Responsable</option>
+        <option value="BCP">BCP</option>
+        <option value="Subsidiaria">Subsidiaria</option>
+        <option value="Otro">Otro</option>
+      </select>
+      
+    <textarea name="actividad_detalle" id="actividad_detalle" placeholder="Detalle de la actividad.."
+    tabindex="1" dir="auto" style="overflow: hidden; overflow-wrap: break-word; height:100px;background:white" onchange="guarda_actividad()"></textarea>
+      </form>
+    </div>
+      
+  <script src="./js/actividad.js"></script>
+  </body>
+  
+</html>

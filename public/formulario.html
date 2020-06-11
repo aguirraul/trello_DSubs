@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./trello.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"  type="text/javascript"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.0/moment-timezone-with-data.js"  type="text/javascript"></script> 
+    
+  </head>
+  <body>
+    <form id="formulario">
+      
+      <Label>CAPA</Label>
+      <select name="capa" id="capa" js-select-board style="width:29%">
+        <option value="" disabled selected>Capa</option>
+        <option value="RDV">RDV</option>
+        <option value="UDV">UDV</option>
+        <option value="DDV">DDV</option>
+      </select>
+      <Label>TIPO DE TAREA</Label>
+      <select name="tipo" id="tipo" style="width:75%">
+        <option value="" disabled selected>Tipo Tarea</option>
+        <option value="AMBIENTE">Preparación de Ambiente</option>
+        <option value="DATA">Ingesta de Data</option>
+        <option value="CROSS">Cross</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <Label>TICKET CLEARQUEST</Label>
+      <input name="nro_ticket" id="nro_ticket" placeholder="TA" style="width:50%">
+      <select name="criticidad" id="criticidad" style="width:25%">
+        <option value="" disabled selected>Criticidad</option>
+        <option value="BAJA">Baja</option>
+        <option value="MEDIA">Media</option>
+        <option value="ALTA">Alta</option>
+      </select>
+      <Label>TICKET REMEDY</Label>
+      <input name="nro_rlm" id="nro_rlm" placeholder="RLM" style="width:50%">
+    <br>
+   
+      <button type="submit" class="mod-primary">Guardar</button>
+    </form>
+    <script src="./js/formulario.js"></script>
+  </body>
+</html>
