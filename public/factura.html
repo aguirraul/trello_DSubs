@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./trello.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    
+    <div>
+      <form id="factura">
+        <select name="factura_si_no" id="factura_si_no" style="width:18%" onchange="guarda_factura()">
+          <option value=""></option>
+          <option value="No">No</option>
+          <option value="Si">Si</option>
+        </select>
+        <input  type="date" name="factura_mes" id="factura_mes"  style="width:60%;" onchange="guarda_factura()">
+        <input name="factura_horas" id="factura_horas" placeholder ="horas" style="width:18%;" onchange="guarda_factura()">
+      </form>
+    </div>
+      
+  <script src="./js/factura.js"></script>
+  </body>
+  
+</html>
